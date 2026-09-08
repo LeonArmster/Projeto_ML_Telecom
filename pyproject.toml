@@ -1,0 +1,25 @@
+[project]
+name = "telecom-data-science"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+
+dependencies = [
+    "catboost>=1.2.10",
+    "dbt-sqlserver>=1.11.1",
+    "fastapi>=0.141.1",
+    "ipykernel>=7.3.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.1",
+    "pandas>=3.0.5",
+    "pyodbc>=5.3.0",
+    "python-dotenv",
+    "scikit-learn>=1.9.0",
+    "sqlmodel>=0.0.39",
+    "uvicorn>=0.52.4",
+    "xgboost>=3.4.1",
+]
+
+[tool.uv]
+package = false

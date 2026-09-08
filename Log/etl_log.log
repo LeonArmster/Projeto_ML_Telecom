@@ -1,0 +1,311 @@
+2026-08-10 01:11:17,310 - INFO - Iniciando o processo ETL.
+2026-08-10 01:11:17,311 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:11:17,326 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:11:17,327 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:11:39,176 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:12:07,540 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-10 01:12:55,361 - INFO - Iniciando o processo ETL.
+2026-08-10 01:12:55,361 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:12:55,386 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:12:55,386 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:13:15,513 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:13:41,141 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-10 01:13:41,549 - INFO - Iniciando o Truncate Table.
+2026-08-10 01:13:41,549 - ERROR - Erro ao realizar truncate table: 'RootTransaction' object has no attribute 'execute'
+2026-08-10 01:17:19,857 - INFO - Iniciando o processo ETL.
+2026-08-10 01:17:19,857 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:17:19,873 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:17:19,873 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:17:40,089 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:18:06,749 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-10 01:18:07,206 - INFO - Iniciando o Truncate Table.
+2026-08-10 01:18:07,216 - INFO - Truncate table realizado com sucesso.
+2026-08-10 01:18:07,220 - INFO - Iniciando o Bulk Insert.
+2026-08-10 01:18:07,240 - ERROR - Erro ao realizar bulk insert: (pyodbc.ProgrammingError) ('42000', '[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot bulk load. The file "C:/Users/leo-s/OneDrive/Desktop/Estudos/Telecom_Data_Science/Data/Processed/Arquivo_Processado.csv" does not exist or you don\'t have file access rights. (4860) (SQLExecDirectW)')
+[SQL: BULK INSERT TELECOM.DBO.Tb_Efetividade -- Nome da tabela que fará a inserção dos dados
+FROM 'C:/Users/leo-s/OneDrive/Desktop/Estudos/Telecom_Data_Science/Data/Processed/Arquivo_Processado.csv'     -- Nome do arquivo que fará e leitura para a inserção dos dados
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ';',
+    ROWTERMINATOR = '0x0a',
+    TABLOCK
+)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-10 01:20:21,765 - INFO - Iniciando o processo ETL.
+2026-08-10 01:20:21,765 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:20:21,765 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:20:21,765 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:20:39,377 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:21:05,233 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-10 01:21:05,624 - INFO - Iniciando o Truncate Table.
+2026-08-10 01:21:05,625 - INFO - Truncate table realizado com sucesso.
+2026-08-10 01:21:38,793 - INFO - Iniciando o processo ETL.
+2026-08-10 01:21:38,793 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:21:38,793 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:21:38,793 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:21:57,366 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:22:23,579 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-10 01:22:23,955 - INFO - Iniciando o Truncate Table.
+2026-08-10 01:22:23,958 - INFO - Truncate table realizado com sucesso.
+2026-08-10 01:22:23,961 - INFO - Iniciando o Bulk Insert.
+2026-08-10 01:22:41,494 - ERROR - Erro ao realizar bulk insert: (pyodbc.ProgrammingError) ('42000', '[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 846009, column 26 (Dia). (4864) (SQLExecDirectW); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 849527, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 1072862, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 1092194, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 1093495, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 1095613, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 1095791, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 1097008, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 1099172, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 1099425, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 1102180, column 26 (Dia). (4864); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot bulk load because the maximum number of errors (10) was exceeded. (4865); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]The OLE DB provider "BULK" for linked server "(null)" reported an error. The provider did not give any information about the error. (7399); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot fetch a row from OLE DB provider "BULK" for linked server "(null)". (7330)')
+[SQL: BULK INSERT TELECOM.DBO.Tb_Efetividade -- Nome da tabela que fará a inserção dos dados
+FROM '/Data/Processed/Arquivo_Processado.csv'     -- Nome do arquivo que fará e leitura para a inserção dos dados
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ';',
+    ROWTERMINATOR = '0x0a',
+    TABLOCK
+)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-10 01:24:44,525 - INFO - Iniciando o processo ETL.
+2026-08-10 01:24:44,525 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:24:44,526 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:24:44,526 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:25:04,531 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:25:39,639 - INFO - Iniciando o processo ETL.
+2026-08-10 01:25:39,639 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:25:39,652 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:25:39,652 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:25:57,130 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:26:23,295 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-10 01:26:23,698 - INFO - Iniciando o Truncate Table.
+2026-08-10 01:26:23,700 - INFO - Truncate table realizado com sucesso.
+2026-08-10 01:26:23,703 - INFO - Iniciando o Bulk Insert.
+2026-08-10 01:26:23,706 - ERROR - Erro ao realizar bulk insert: (pyodbc.ProgrammingError) ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Keyword or statement option 'CODEPAGE' is not supported on the 'Linux' platform. (16202) (SQLExecDirectW)")
+[SQL: BULK INSERT TELECOM.DBO.Tb_Efetividade -- Nome da tabela que fará a inserção dos dados
+FROM '/Data/Processed/Arquivo_Processado.csv'     -- Nome do arquivo que fará e leitura para a inserção dos dados
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ';',
+    ROWTERMINATOR = '\n',
+    CODEPAGE = '650001'
+    TABLOCK
+)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-10 01:26:46,610 - INFO - Iniciando o processo ETL.
+2026-08-10 01:26:46,610 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:26:46,611 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:26:46,611 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:27:04,665 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:27:30,381 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-10 01:27:30,764 - INFO - Iniciando o Truncate Table.
+2026-08-10 01:27:30,765 - INFO - Truncate table realizado com sucesso.
+2026-08-10 01:27:30,769 - INFO - Iniciando o Bulk Insert.
+2026-08-10 01:27:30,770 - ERROR - Erro ao realizar bulk insert: (pyodbc.ProgrammingError) ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Keyword or statement option 'CODEPAGE' is not supported on the 'Linux' platform. (16202) (SQLExecDirectW)")
+[SQL: BULK INSERT TELECOM.DBO.Tb_Efetividade -- Nome da tabela que fará a inserção dos dados
+FROM '/Data/Processed/Arquivo_Processado.csv'     -- Nome do arquivo que fará e leitura para a inserção dos dados
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ';',
+    ROWTERMINATOR = '\n',
+    CODEPAGE = '650001',
+    TABLOCK
+)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-10 01:29:08,639 - INFO - Iniciando o processo ETL.
+2026-08-10 01:29:08,640 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:29:08,640 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:29:08,640 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:29:25,901 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:29:50,675 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-10 01:29:51,063 - INFO - Iniciando o Truncate Table.
+2026-08-10 01:29:51,064 - INFO - Truncate table realizado com sucesso.
+2026-08-10 01:29:51,067 - INFO - Iniciando o Bulk Insert.
+2026-08-10 01:30:06,692 - INFO - Bulk insert realizado com sucesso.
+2026-08-10 01:33:30,678 - INFO - Iniciando o processo ETL.
+2026-08-10 01:33:30,678 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-10 01:33:30,679 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-10 01:33:30,679 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-10 01:33:47,796 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-10 01:34:12,676 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-10 01:34:13,021 - INFO - Iniciando o Truncate Table.
+2026-08-10 01:34:13,023 - INFO - Truncate table realizado com sucesso.
+2026-08-10 01:34:13,026 - INFO - Iniciando o Bulk Insert.
+2026-08-10 01:34:26,870 - INFO - Bulk insert realizado com sucesso.
+2026-08-16 19:31:24,439 - INFO - Iniciando o processo ETL.
+2026-08-16 19:31:24,440 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 19:31:24,483 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 19:31:24,483 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 19:31:45,215 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 19:32:08,560 - INFO - Iniciando o processo ETL.
+2026-08-16 19:32:08,560 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 19:32:08,572 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 19:32:08,572 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 19:32:26,339 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 19:32:51,661 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 19:32:52,217 - INFO - Iniciando o Truncate Table.
+2026-08-16 19:32:52,219 - INFO - Truncate table realizado com sucesso.
+2026-08-16 19:32:52,276 - INFO - Iniciando o Bulk Insert.
+2026-08-16 19:33:03,564 - INFO - Bulk insert realizado com sucesso.
+2026-08-16 19:36:25,362 - INFO - Iniciando o processo ETL.
+2026-08-16 19:36:25,362 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 19:36:25,363 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 19:36:25,363 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 19:36:43,719 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 19:37:07,747 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 19:37:08,154 - INFO - Iniciando o Truncate Table.
+2026-08-16 19:37:08,156 - INFO - Truncate table realizado com sucesso.
+2026-08-16 19:37:08,164 - INFO - Iniciando o Bulk Insert.
+2026-08-16 19:37:16,280 - INFO - Bulk insert realizado com sucesso.
+2026-08-16 19:45:15,789 - INFO - Iniciando o processo ETL.
+2026-08-16 19:45:15,790 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 19:45:15,790 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 19:45:15,790 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 19:45:33,049 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 19:45:57,809 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 19:45:58,170 - INFO - Iniciando o Truncate Table.
+2026-08-16 19:45:58,172 - INFO - Truncate table realizado com sucesso.
+2026-08-16 19:45:58,174 - INFO - Iniciando o Bulk Insert.
+2026-08-16 19:46:07,033 - INFO - Bulk insert realizado com sucesso.
+2026-08-16 20:00:22,014 - INFO - Iniciando o processo ETL.
+2026-08-16 20:00:22,015 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 20:00:22,015 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 20:00:22,016 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 20:00:40,512 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 20:01:04,720 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 20:01:05,102 - INFO - Iniciando o Truncate Table.
+2026-08-16 20:01:05,104 - INFO - Truncate table realizado com sucesso.
+2026-08-16 20:01:05,106 - INFO - Iniciando o Bulk Insert.
+2026-08-16 20:01:13,201 - INFO - Bulk insert realizado com sucesso.
+2026-08-16 20:21:56,832 - INFO - Iniciando o processo ETL.
+2026-08-16 20:21:56,833 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 20:21:56,833 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 20:21:56,834 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 20:22:12,400 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 20:22:34,311 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 20:22:34,670 - INFO - Iniciando o Truncate Table.
+2026-08-16 20:22:34,672 - INFO - Truncate table realizado com sucesso.
+2026-08-16 20:22:34,676 - INFO - Iniciando o Bulk Insert.
+2026-08-16 20:22:44,052 - INFO - Bulk insert realizado com sucesso.
+2026-08-16 20:45:51,354 - INFO - Iniciando o processo ETL.
+2026-08-16 20:45:51,354 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 20:45:51,367 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 20:45:51,367 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 20:46:08,366 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 20:46:32,622 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 20:47:37,419 - INFO - Iniciando o processo ETL.
+2026-08-16 20:47:37,419 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 20:47:37,420 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 20:47:37,420 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 20:47:55,975 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 20:48:21,270 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 20:49:27,918 - INFO - Iniciando o processo ETL.
+2026-08-16 20:49:27,918 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 20:49:27,930 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 20:49:27,930 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 20:49:46,871 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 20:50:13,138 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 20:50:13,563 - INFO - Iniciando o Truncate Table.
+2026-08-16 20:50:13,566 - INFO - Truncate table realizado com sucesso.
+2026-08-16 20:50:13,572 - INFO - Iniciando o Bulk Insert.
+2026-08-16 20:50:23,255 - INFO - Bulk insert realizado com sucesso.
+2026-08-16 20:53:10,499 - INFO - Iniciando o processo ETL.
+2026-08-16 20:53:10,499 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 20:53:10,510 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 20:53:10,510 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 20:53:26,602 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 20:53:49,619 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 20:53:49,998 - INFO - Iniciando o Truncate Table.
+2026-08-16 20:53:50,000 - INFO - Truncate table realizado com sucesso.
+2026-08-16 20:53:50,001 - INFO - Iniciando o Bulk Insert.
+2026-08-16 20:54:03,667 - INFO - Bulk insert executado com sucesso.
+2026-08-16 21:19:07,233 - INFO - Iniciando o processo ETL.
+2026-08-16 21:19:07,234 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 21:19:07,245 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 21:19:07,245 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 21:19:24,576 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 21:19:48,730 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 21:19:49,140 - INFO - Iniciando o Truncate Table.
+2026-08-16 21:19:49,142 - INFO - Truncate table realizado com sucesso.
+2026-08-16 21:19:49,143 - INFO - Iniciando o Bulk Insert.
+2026-08-16 21:20:01,654 - INFO - Bulk insert executado com sucesso.
+2026-08-16 21:20:01,654 - INFO - Arquivo utilizado no BULK INSERT: /Data/Processed/Arquivo_Processado.csv
+2026-08-16 21:21:08,879 - INFO - Iniciando o processo ETL.
+2026-08-16 21:21:08,879 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 21:21:08,890 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 21:21:08,890 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 21:21:26,568 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 21:21:53,988 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 21:21:54,480 - INFO - Iniciando o Truncate Table.
+2026-08-16 21:21:54,484 - INFO - Truncate table realizado com sucesso.
+2026-08-16 21:21:54,487 - INFO - Iniciando o Bulk Insert.
+2026-08-16 21:22:06,972 - INFO - Bulk insert executado com sucesso.
+2026-08-16 21:22:06,973 - INFO - Arquivo utilizado no BULK INSERT: /Data/Processed/Arquivo_Processado.csv
+2026-08-16 21:22:06,973 - ERROR - Erro ao realizar bulk insert: This Connection is closed
+2026-08-16 21:23:33,174 - INFO - Iniciando o processo ETL.
+2026-08-16 21:23:33,174 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 21:23:33,186 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 21:23:33,186 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 21:23:53,168 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 21:24:19,325 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 21:24:19,780 - INFO - Iniciando o Truncate Table.
+2026-08-16 21:24:19,782 - INFO - Truncate table realizado com sucesso.
+2026-08-16 21:24:19,784 - INFO - Iniciando o Bulk Insert.
+2026-08-16 21:24:31,804 - INFO - Bulk insert executado com sucesso.
+2026-08-16 21:24:31,804 - INFO - Arquivo utilizado no BULK INSERT: /Data/Processed/Arquivo_Processado.csv
+2026-08-16 21:24:31,804 - ERROR - Erro ao realizar bulk insert: (pyodbc.Error) ('HY010', '[HY010] [Microsoft][ODBC Driver 18 for SQL Server]Erro de sequência de função (0) (SQLFetch)')
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-08-16 21:26:10,773 - INFO - Iniciando o processo ETL.
+2026-08-16 21:26:10,773 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 21:26:10,784 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 21:26:10,784 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 21:26:29,906 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 21:26:57,302 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 21:26:57,881 - INFO - Iniciando o Truncate Table.
+2026-08-16 21:26:57,883 - INFO - Truncate table realizado com sucesso.
+2026-08-16 21:26:57,885 - INFO - Iniciando o Bulk Insert.
+2026-08-16 21:27:09,938 - INFO - Bulk insert executado com sucesso.
+2026-08-16 21:27:09,939 - INFO - Arquivo utilizado no BULK INSERT: /Data/Processed/Arquivo_Processado.csv
+2026-08-16 21:27:09,942 - ERROR - Erro ao realizar bulk insert: (pyodbc.Error) ('HY010', '[HY010] [Microsoft][ODBC Driver 18 for SQL Server]Erro de sequência de função (0) (SQLFetch)')
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-08-16 21:28:34,742 - INFO - Iniciando o processo ETL.
+2026-08-16 21:28:34,742 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 21:28:34,753 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 21:28:34,754 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 21:28:53,809 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 21:29:20,366 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 21:29:20,770 - INFO - Iniciando o Truncate Table.
+2026-08-16 21:29:20,772 - INFO - Truncate table realizado com sucesso.
+2026-08-16 21:29:20,774 - INFO - Iniciando o Bulk Insert.
+2026-08-16 21:29:30,461 - INFO - Bulk insert commitado.
+2026-08-16 21:29:30,462 - INFO - Registros na tabela: 0
+2026-08-16 22:03:16,453 - INFO - Iniciando o processo ETL.
+2026-08-16 22:03:16,453 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 22:03:16,465 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 22:03:16,466 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 22:03:34,744 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 22:03:59,422 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 22:03:59,847 - INFO - Iniciando o Truncate Table.
+2026-08-16 22:03:59,850 - INFO - Truncate table realizado com sucesso.
+2026-08-16 22:03:59,852 - INFO - Iniciando o Bulk Insert.
+2026-08-16 22:04:13,772 - INFO - Bulk insert commitado.
+2026-08-16 22:04:15,469 - INFO - Registros na tabela: 4048477
+2026-08-16 22:05:06,156 - INFO - Iniciando o processo ETL.
+2026-08-16 22:05:06,157 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-16 22:05:06,157 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-16 22:05:06,158 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-16 22:05:22,211 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-16 22:05:47,942 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-16 22:05:48,337 - INFO - Iniciando o Truncate Table.
+2026-08-16 22:05:48,340 - INFO - Truncate table realizado com sucesso.
+2026-08-16 22:05:48,341 - INFO - Iniciando o Bulk Insert.
+2026-08-16 22:05:59,183 - INFO - Bulk insert commitado.
+2026-08-16 22:06:00,569 - INFO - Registros na tabela: 4048477
+2026-08-29 21:53:58,580 - INFO - Iniciando o processo ETL.
+2026-08-29 21:53:58,581 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-29 21:53:58,615 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-29 21:53:58,615 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-29 21:54:17,555 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-29 21:54:44,804 - INFO - Arquivo processado e salvo com sucesso.
+2026-08-29 21:54:45,455 - INFO - Iniciando o Truncate Table.
+2026-08-29 21:54:45,462 - INFO - Truncate table realizado com sucesso.
+2026-08-29 21:54:45,464 - INFO - Iniciando o Bulk Insert.
+2026-08-29 21:54:57,085 - INFO - Bulk insert commitado.
+2026-08-29 21:54:57,725 - INFO - Registros na tabela: 4048477
+2026-08-31 23:20:53,682 - INFO - Iniciando o processo ETL.
+2026-08-31 23:20:53,683 - INFO - Estabelecendo conexão com o banco de dados.
+2026-08-31 23:20:53,700 - INFO - Conexão com o banco de dados estabelecida com sucesso.
+2026-08-31 23:20:53,700 - INFO - Iniciando leitura do CSV. Efetividade_2022-2023.csv
+2026-08-31 23:21:30,172 - INFO - Transformando dados do DataFrame para o formato de inserção.
+2026-08-31 23:23:51,337 - INFO - Arquivo processado e salvo com sucesso.

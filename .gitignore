@@ -1,0 +1,16 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+
+# Arquivos para ignorar
+Arquivo_Processado.csv
+modelo_rf.joblib
+Efetividade_2022-2023.csv

@@ -1,0 +1,16 @@
+# O nome aqui deve bater com o "profile:" definido no seu dbt_project.yml
+telecom_analytics: 
+  target: dev
+  outputs:
+    dev:
+      type: sqlserver
+      driver: "ODBC Driver 18 for SQL Server" # Mude para 18 caso esteja usando a versão mais recente
+      server: "{{ env_var('DB_HOST') }}"
+      port: "{{ env_var('DB_PORT') | int }}"
+      database: "{{ env_var('DB_NAME') }}"
+      schema: dbo # O esquema padrão do SQL Server. Você pode adicionar DB_SCHEMA no .env se preferir
+      user: "{{ env_var('DB_USER') }}"
+      password: "{{ env_var('DB_PASSWORD') }}"
+      authentication: sql
+      trust_cert: true
+      threads: 4

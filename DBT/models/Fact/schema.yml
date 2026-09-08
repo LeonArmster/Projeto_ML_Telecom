@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: fact_efetividade
+    description: "Tabela fato de efetividade das ordens de serviço."
+
+    columns:
+      - name: ordem_id
+        description: "Identificador da ordem de serviço."
+
+      - name: atividade_id
+        description: "Identificador da atividade."
+
+      - name: tipo_atividade
+        description: "Tipo da atividade."
+
+      - name: status_ordem
+        description: "Status atual da ordem."
+
+      - name: status_final
+        description: "Resultado final da ordem."
+
+      - name: grupo_resultado
+        description: "Grupo do resultado da atividade."
+
+      - name: tipo_servico
+        description: "Tipo de serviço."
+
+      - name: cidade
+        description: "Cidade da ordem."
+
+      - name: data_agendamento
+        description: "Data prevista para execução."
+        tests:
+          - not_null
+
+      - name: segmento
+        description: "Segmento da ordem."
+
+      - name: categoria_cliente
+        description: "Categoria do cliente."
+
+      - name: duracao
+        description: "Duração da atividade."
+
+      - name: rede_acesso
+        description: "Rede de acesso."
+
+      - name: matricula_operador
+        description: "Matrícula do operador."
+
+      - name: nome_operador
+        description: "Nome do operador."
+
+      - name: cluster_zeus
+        description: "Cluster operacional."
+
+      - name: gerencia
+        description: "Gerência responsável."
+
+      - name: efetividade
+        description: "Indicador de efetividade. 1 para concluída e 0 para demais situações."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+
+      - name: ano
+        description: "Ano da agenda."
+      
+      - name: mes
+        description: "Mes da agenda."
+
+      - name: dia
+        description: "Dia da agenda."
+
+      - name: dia_semana
+        description: "Dia da semana da agenda."

@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_ordens
+    description: "Camada de staging das ordens de serviço."
+
+    columns:
+      - name: ordem_id
+        description: "Identificador da ordem de serviço."
+
+      - name: atividade_id
+        description: "Identificador da atividade da ordem."
+
+      - name: tipo_atividade
+        description: "Tipo da atividade executada."
+
+      - name: status_ordem
+        description: "Status da ordem."
+
+      - name: status_final
+        description: "Resultado final da ordem."
+
+      - name: grupo_resultado
+        description: "Agrupamento do resultado final."
+
+      - name: tipo_servico
+        description: "Tipo de serviço da ordem."
+
+      - name: data_agendamento
+        description: "Data prevista para execução."
+        tests:
+          - not_null
+
+      - name: cidade
+        description: "Cidade associada à ordem."

@@ -1,0 +1,134 @@
+version: 2
+
+sources:
+  - name: telecom
+    description: >
+      Fonte operacional contendo os dados das ordens de serviço utilizadas
+      no processo de análise de efetividade.
+
+    database: TELECOM
+    schema: DBO
+    tables:
+      - name: tb_efetividade 
+        identifier: Tb_Efetividade 
+        description: >
+          Tabela operacional com informações das ordens de serviço,
+          agendamento, técnico responsável e resultado da execução.
+
+        columns:
+
+          - name: PON
+            description: "Número identificador da ordem de serviço."
+
+          - name: Atividade
+            description: "Número identificador da atividade dentro do dia."
+
+          - name: TP_Atividade
+            description: "Tipo da atividade ou serviço."
+
+          - name: Intervalo
+            description: "Slot de horário agendado para execução da ordem."
+
+          - name: Status
+            description: "Status atual da ordem."
+
+          - name: Detalhe_Atividade
+            description: "Detalhamento da atividade associada à ordem."
+
+          - name: Rede_Acesso
+            description: "Tipo de rede de acesso utilizada na ordem."
+
+          - name: Status_Final
+            description: "Status final obtido após o processamento da ordem."
+
+          - name: Grupo_Info
+            description: "Agrupamento do status final da ordem."
+
+          - name: Tipo_Servico
+            description: >
+              Classificação do tipo de serviço, incluindo categorias como
+              alta, reparo, mudança de endereço, migração e serviço.
+
+          - name: CARGA_CONF
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: MATRICULA_CONF
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: DIA_ATUAL
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: INICIO_SLOT
+            description: "Horário de início do slot agendado."
+
+          - name: FIM_SLOT
+            description: "Horário de término do slot agendado."
+
+          - name: CHEGADA_SLOT
+            description: "Indicador relacionado à chegada do técnico dentro do horário do slot."
+
+          - name: NUMERO_ORDEM
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: CANAL
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: DIV_GER_CIDADE
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: DEALER
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: LOGIN
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: NOME_LOGIN
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: DT_ABERTURA
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: BASE
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: CANALNIVEL1
+            description: "Campo atualmente não utilizado no processo analítico."
+
+          - name: Cidade
+            description: "Cidade associada à ordem de serviço."
+
+          - name: DT_Ag_Execucao
+            description: "Data prevista para execução da ordem."
+
+          - name: Segmento
+            description: "Segmento associado à ordem ou cliente."
+
+          - name: Categoria_Cliente
+            description: "Categoria do cliente associado à ordem."
+
+          - name: Duracao
+            description: "Duração registrada para a atividade."
+
+          - name: MACRO_PRODUTO
+            description: "Classificação do macroproduto relacionado à ordem."
+
+          - name: GERENCIA
+            description: "Gerência responsável pela região ou operação da ordem."
+
+          - name: CLUSTER_ZEUS
+            description: "Cluster operacional associado à ordem."
+
+          - name: ORIGEM_ORDENS
+            description: "Origem ou sistema responsável pela geração da ordem."
+
+          - name: Inicio_Previsto
+            description: "Horário previsto para início da atividade."
+
+          - name: Inicio_Real
+            description: "Horário real registrado para início da atividade."
+
+          - name: Matricula_Oper
+            description: "Matrícula do operador associada ao registro."
+
+          - name: Nome_Oper
+            description: "Nome do operador associado ao registro."

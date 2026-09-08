@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: int_ordens_efetividade
+    description: "Camada intermediária com o indicador de efetividade das ordens."
+
+    columns:
+      - name: ordem_id
+        description: "Identificador da ordem de serviço."
+
+      - name: atividade_id
+        description: "Identificador da atividade."
+
+      - name: efetividade
+        description: "Indicador de efetividade. 1 para ordem concluída e 0 para demais situações."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
