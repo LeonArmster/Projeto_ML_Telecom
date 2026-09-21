@@ -10,6 +10,9 @@ import pandas as pd
 from catboost import CatBoostClassifier, Pool
 from sklearn.metrics import roc_auc_score, brier_score_loss, log_loss
 from src.Database.database_config import connect_database, read_query
+from src.config import processed_dir, raw_dir
+from src.Load.bulk_insert import executar_bulk_insert
+from src.Load.truncate_table import executar_truncate_table
 
 # Configurando o warning
 warnings.filterwarnings("ignore")
@@ -331,16 +334,19 @@ df_treinamento = pd.merge(df_treinamento, df_cidade_atividade_30d, on=['data_age
 # Separando entre treino e teste com a data limite
 data_limite_treino = pd.Timestamp('2023-09-01')
 
+#df_treinamento['ordem_id'] = df_treinamento['ordem_id'].astype('category')
+
 df_treino = df_treinamento[df_treinamento['data_agendamento'] < data_limite_treino]
 df_teste = df_treinamento[df_treinamento['data_agendamento'] >= data_limite_treino]
+ordem_teste = df_teste[['ordem_id', 'atividade_id']]
 
 # Variável alvo de teste e treinamento
 y_train = df_treino['efetividade']
 y_teste = df_teste['efetividade']
 
 # Features de treinamento e teste
-x_train = df_treino.drop(columns=['data_agendamento','efetividade', 'duracao', 'status_ordem', 'rede_acesso'])
-x_teste = df_teste.drop(columns=['data_agendamento','efetividade', 'duracao', 'status_ordem', 'rede_acesso'])
+x_train = df_treino.drop(columns=['ordem_id', 'atividade_id', 'data_agendamento','efetividade', 'duracao', 'status_ordem', 'rede_acesso'])
+x_teste = df_teste.drop(columns=['ordem_id', 'atividade_id', 'data_agendamento','efetividade', 'duracao', 'status_ordem', 'rede_acesso'])
 
 
 # Features categoricas
@@ -395,6 +401,7 @@ modelo.fit(
 # Testando o modelo
 # ------------------------------
 probabilidade = modelo.predict_proba(x_teste)[:, 1]
+
 
 
 
@@ -470,20 +477,79 @@ print(calibracao.to_string(index=False))
 
 
 
+
+
+# ---------------------------------------------------------------
+# Criando a tabela que subirá no banco com as predições
+# ---------------------------------------------------------------
+# preparando o df de precição
+df_predicoes = df_teste
+
+# Adicionando a coluna de probabilidade
+df_predicoes['probabilidade'] = probabilidade
+
+df_predicoes['efetividade'] = df_predicoes['efetividade'].fillna(0)
+
+# Subindo o df com as probabilidades no banco
+df_predicoes.to_csv(processed_dir/'tb_stg_ml_predicoes_efetividade.csv', index=False, sep='|')
+
+#df_predicoes.head(10000).to_sql('tb_stg_ml_predicoes_efetividade', conexao, if_exists='replace', index=False)
+
+
+arquivo = '/Data/Processed/tb_stg_ml_predicoes_efetividade.csv'
+
+executar_truncate_table(conexao, query='truncate_table.sql', tabela='tb_stg_ml_predicoes_efetividade')
+
+executar_bulk_insert(conexao, query='bulk_insert.sql', tabela='tb_stg_ml_predicoes_efetividade',arquivo=arquivo)
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Classificando a importância das colunas
-indice = 0
-
-ordem = x_teste.iloc[[indice]]
-
 pool_ordem = Pool(
-    data=ordem,
+    data=x_teste,
     cat_features=colunas_categoricas
 )
 
 shap_values  = modelo.get_feature_importance(type='ShapValues', data=pool_ordem)
 
-shap_features = shap_values[0, :-1]
-valor_base = shap_values[0, -1]
+
+print(shap_values.shape)
+print(x_teste.shape)
+
+
+shap_features = shap_values[:, :-1]
+valor_base = shap_values[:, -1]
+
+
+df_shap = pd.DataFrame(
+    shap_features,
+    columns=x_teste.columns
+)
+
+
+
+df_shap.insert(
+    0,
+    'ordem_id',
+    ordem_teste.values
+)
+
+
+df_valores = df_shap.melt(
+    id_vars='ordem_id',
+    var_name='feature',
+    value_name='valor'
+)
 
 
 df_shap = pd.DataFrame({'feature': ordem.columns, 'valor': ordem.iloc[0].values, 'shap': shap_features})

@@ -42,6 +42,7 @@ def executar_truncate_table(engine, query:str, tabela:str):
         try:
             logging.info("Iniciando o Truncate Table.")
             conexao.execute(text(query))
+            conexao.commit()
             logging.info("Truncate table realizado com sucesso.")
 
         # Caso ocorra algum erro, ele será logado e a exceção será levantada

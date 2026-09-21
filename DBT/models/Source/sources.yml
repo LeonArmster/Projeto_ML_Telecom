@@ -8,9 +8,15 @@ sources:
 
     database: TELECOM
     schema: DBO
+
     tables:
-      - name: tb_efetividade 
-        identifier: Tb_Efetividade 
+
+      # ============================================================
+      # TABELA OPERACIONAL
+      # ============================================================
+
+      - name: tb_efetividade
+        identifier: Tb_Efetividade
         description: >
           Tabela operacional com informações das ordens de serviço,
           agendamento, técnico responsável e resultado da execução.
@@ -132,3 +138,300 @@ sources:
 
           - name: Nome_Oper
             description: "Nome do operador associado ao registro."
+
+
+      # ============================================================
+      # STAGING DO MODELO DE EFETIVIDADE
+      # ============================================================
+
+      - name: tb_stg_ml_predicoes_efetividade
+        identifier: tb_stg_ml_predicoes_efetividade
+
+        description: >
+          Tabela de staging contendo os dados preparados pelo processo
+          de machine learning para geração e armazenamento das predições
+          de efetividade das ordens.
+
+        columns:
+
+          # --------------------------------------------------------
+          # IDENTIFICAÇÃO
+          # --------------------------------------------------------
+
+          - name: ordem_id
+            description: "Identificador da ordem de serviço."
+
+          - name: atividade_id
+            description: "Identificador da atividade da ordem."
+
+          # --------------------------------------------------------
+          # CARACTERÍSTICAS DA ORDEM
+          # --------------------------------------------------------
+
+          - name: tipo_atividade
+            description: "Tipo da atividade."
+
+          - name: slot
+            description: "Slot de horário da ordem."
+
+          - name: status_ordem
+            description: "Status da ordem."
+
+          - name: detalhe_atividade
+            description: "Detalhamento da atividade."
+
+          - name: tipo_servico
+            description: "Tipo de serviço."
+
+          - name: cidade
+            description: "Cidade da ordem."
+
+          - name: data_agendamento
+            description: "Data de agendamento da ordem."
+
+          - name: segmento
+            description: "Segmento da ordem."
+
+          - name: categoria_cliente
+            description: "Categoria do cliente."
+
+          - name: duracao
+            description: "Duração da atividade."
+
+          - name: rede_acesso
+            description: "Rede de acesso."
+
+          - name: nome_operador
+            description: "Nome do técnico responsável pela ordem."
+
+          - name: cluster_zeus
+            description: "Cluster Zeus associado à ordem."
+
+          - name: gerencia
+            description: "Gerência responsável pela ordem."
+
+          # --------------------------------------------------------
+          # RESULTADO
+          # --------------------------------------------------------
+
+          - name: efetividade
+            description: >
+              Resultado real da ordem.
+              1 representa uma ordem efetiva e 0 uma ordem não efetiva.
+
+          # --------------------------------------------------------
+          # VARIÁVEIS TEMPORAIS
+          # --------------------------------------------------------
+
+          - name: ano
+            description: "Ano da data de agendamento."
+
+          - name: mes
+            description: "Mês da data de agendamento."
+
+          - name: dia
+            description: "Dia do mês da data de agendamento."
+
+          - name: dia_semana
+            description: "Dia da semana da data de agendamento."
+
+          - name: semana_ano
+            description: "Semana do ano da data de agendamento."
+
+          - name: fim_de_semana
+            description: "Indicador de final de semana."
+
+          # --------------------------------------------------------
+          # TÉCNICO
+          # --------------------------------------------------------
+
+          - name: qtd_ordens_7D_tecnico
+            description: "Quantidade de ordens do técnico nos últimos 7 dias."
+
+          - name: qtd_efetivas_7D_tecnico
+            description: "Quantidade de ordens efetivas do técnico nos últimos 7 dias."
+
+          - name: efetividade_tecnico_7D
+            description: "Taxa de efetividade do técnico nos últimos 7 dias."
+
+          - name: qtd_ordens_15D_tecnico
+            description: "Quantidade de ordens do técnico nos últimos 15 dias."
+
+          - name: qtd_efetivas_15D_tecnico
+            description: "Quantidade de ordens efetivas do técnico nos últimos 15 dias."
+
+          - name: efetividade_tecnico_15D
+            description: "Taxa de efetividade do técnico nos últimos 15 dias."
+
+          - name: qtd_ordens_30D_tecnico
+            description: "Quantidade de ordens do técnico nos últimos 30 dias."
+
+          - name: qtd_efetivas_30D_tecnico
+            description: "Quantidade de ordens efetivas do técnico nos últimos 30 dias."
+
+          - name: efetividade_tecnico_30D
+            description: "Taxa de efetividade do técnico nos últimos 30 dias."
+
+          # --------------------------------------------------------
+          # TIPO DE SERVIÇO
+          # --------------------------------------------------------
+
+          - name: qtd_ordens_7D_tipo_servico
+            description: "Quantidade de ordens do tipo de serviço nos últimos 7 dias."
+
+          - name: qtd_efetivas_7D_tipo_servico
+            description: "Quantidade de ordens efetivas do tipo de serviço nos últimos 7 dias."
+
+          - name: efetividade_tipo_servico_7D
+            description: "Taxa de efetividade do tipo de serviço nos últimos 7 dias."
+
+          - name: qtd_ordens_15D_tipo_servico
+            description: "Quantidade de ordens do tipo de serviço nos últimos 15 dias."
+
+          - name: qtd_efetivas_15D_tipo_servico
+            description: "Quantidade de ordens efetivas do tipo de serviço nos últimos 15 dias."
+
+          - name: efetividade_tipo_servico_15D
+            description: "Taxa de efetividade do tipo de serviço nos últimos 15 dias."
+
+          - name: qtd_ordens_30D_tipo_servico
+            description: "Quantidade de ordens do tipo de serviço nos últimos 30 dias."
+
+          - name: qtd_efetivas_30D_tipo_servico
+            description: "Quantidade de ordens efetivas do tipo de serviço nos últimos 30 dias."
+
+          - name: efetividade_tipo_servico_30D
+            description: "Taxa de efetividade do tipo de serviço nos últimos 30 dias."
+
+          # --------------------------------------------------------
+          # ATIVIDADE + SLOT
+          # --------------------------------------------------------
+
+          - name: qtd_ordens_7D_atividade_slot
+            description: "Quantidade de ordens da atividade e slot nos últimos 7 dias."
+
+          - name: qtd_efetivas_7D_atividade_slot
+            description: "Quantidade de ordens efetivas da atividade e slot nos últimos 7 dias."
+
+          - name: efetividade_atividade_slot_7D
+            description: "Taxa de efetividade da atividade e slot nos últimos 7 dias."
+
+          - name: qtd_ordens_15D_atividade_slot
+            description: "Quantidade de ordens da atividade e slot nos últimos 15 dias."
+
+          - name: qtd_efetivas_15D_atividade_slot
+            description: "Quantidade de ordens efetivas da atividade e slot nos últimos 15 dias."
+
+          - name: efetividade_atividade_slot_15D
+            description: "Taxa de efetividade da atividade e slot nos últimos 15 dias."
+
+          - name: qtd_ordens_30D_atividade_slot
+            description: "Quantidade de ordens da atividade e slot nos últimos 30 dias."
+
+          - name: qtd_efetivas_30D_atividade_slot
+            description: "Quantidade de ordens efetivas da atividade e slot nos últimos 30 dias."
+
+          - name: efetividade_atividade_slot_30D
+            description: "Taxa de efetividade da atividade e slot nos últimos 30 dias."
+
+          # --------------------------------------------------------
+          # TÉCNICO + ATIVIDADE
+          # --------------------------------------------------------
+
+          - name: qtd_ordens_7D_tecnico_atividade
+            description: "Quantidade de ordens do técnico e atividade nos últimos 7 dias."
+
+          - name: qtd_efetivas_7D_tecnico_atividade
+            description: "Quantidade de ordens efetivas do técnico e atividade nos últimos 7 dias."
+
+          - name: efetividade_tecnico_atividade_7D
+            description: "Taxa de efetividade do técnico e atividade nos últimos 7 dias."
+
+          - name: qtd_ordens_15D_tecnico_atividade
+            description: "Quantidade de ordens do técnico e atividade nos últimos 15 dias."
+
+          - name: qtd_efetivas_15D_tecnico_atividade
+            description: "Quantidade de ordens efetivas do técnico e atividade nos últimos 15 dias."
+
+          - name: efetividade_tecnico_atividade_15D
+            description: "Taxa de efetividade do técnico e atividade nos últimos 15 dias."
+
+          - name: qtd_ordens_30D_tecnico_atividade
+            description: "Quantidade de ordens do técnico e atividade nos últimos 30 dias."
+
+          - name: qtd_efetivas_30D_tecnico_atividade
+            description: "Quantidade de ordens efetivas do técnico e atividade nos últimos 30 dias."
+
+          - name: efetividade_tecnico_atividade_30D
+            description: "Taxa de efetividade do técnico e atividade nos últimos 30 dias."
+
+          # --------------------------------------------------------
+          # TÉCNICO + SEGMENTO
+          # --------------------------------------------------------
+
+          - name: qtd_ordens_7D_tecnico_segmento
+            description: "Quantidade de ordens do técnico e segmento nos últimos 7 dias."
+
+          - name: qtd_efetivas_7D_tecnico_segmento
+            description: "Quantidade de ordens efetivas do técnico e segmento nos últimos 7 dias."
+
+          - name: efetividade_tecnico_segmento_7D
+            description: "Taxa de efetividade do técnico e segmento nos últimos 7 dias."
+
+          - name: qtd_ordens_15D_tecnico_segmento
+            description: "Quantidade de ordens do técnico e segmento nos últimos 15 dias."
+
+          - name: qtd_efetivas_15D_tecnico_segmento
+            description: "Quantidade de ordens efetivas do técnico e segmento nos últimos 15 dias."
+
+          - name: efetividade_tecnico_segmento_15D
+            description: "Taxa de efetividade do técnico e segmento nos últimos 15 dias."
+
+          - name: qtd_ordens_30D_tecnico_segmento
+            description: "Quantidade de ordens do técnico e segmento nos últimos 30 dias."
+
+          - name: qtd_efetivas_30D_tecnico_segmento
+            description: "Quantidade de ordens efetivas do técnico e segmento nos últimos 30 dias."
+
+          - name: efetividade_tecnico_segmento_30D
+            description: "Taxa de efetividade do técnico e segmento nos últimos 30 dias."
+
+          # --------------------------------------------------------
+          # CIDADE + ATIVIDADE
+          # --------------------------------------------------------
+
+          - name: qtd_ordens_7D_cidade_atividade
+            description: "Quantidade de ordens da cidade e atividade nos últimos 7 dias."
+
+          - name: qtd_efetivas_7D_cidade_atividade
+            description: "Quantidade de ordens efetivas da cidade e atividade nos últimos 7 dias."
+
+          - name: efetividade_cidade_atividade_7D
+            description: "Taxa de efetividade da cidade e atividade nos últimos 7 dias."
+
+          - name: qtd_ordens_15D_cidade_atividade
+            description: "Quantidade de ordens da cidade e atividade nos últimos 15 dias."
+
+          - name: qtd_efetivas_15D_cidade_atividade
+            description: "Quantidade de ordens efetivas da cidade e atividade nos últimos 15 dias."
+
+          - name: efetividade_cidade_atividade_15D
+            description: "Taxa de efetividade da cidade e atividade nos últimos 15 dias."
+
+          - name: qtd_ordens_30D_cidade_atividade
+            description: "Quantidade de ordens da cidade e atividade nos últimos 30 dias."
+
+          - name: qtd_efetivas_30D_cidade_atividade
+            description: "Quantidade de ordens efetivas da cidade e atividade nos últimos 30 dias."
+
+          - name: efetividade_cidade_atividade_30D
+            description: "Taxa de efetividade da cidade e atividade nos últimos 30 dias."
+
+          # --------------------------------------------------------
+          # PREDIÇÃO
+          # --------------------------------------------------------
+
+          - name: probabilidade
+            description: >
+              Probabilidade de efetividade calculada pelo modelo de
+              machine learning para a ordem.

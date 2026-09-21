@@ -1,4 +1,6 @@
 SELECT
+    ordem_id,
+    atividade_id,
     tipo_atividade,
     slot,
     status_ordem,
